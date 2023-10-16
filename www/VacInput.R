@@ -1,30 +1,84 @@
 tags$div(
   tags$div(class="col-sm-12 boxInput",
            tags$div(class="col-sm-4",
-                    sliderInput("VacIndoor",
-                                "Vaccine Indoor dogs",
+                    sliderInput("VacPuppyIndoor",
+                                "Vaccine coverage Puppy Indoor dogs (%)",
                                 min = 0,
                                 max = 100,
                                 step = 1,
-                                value = 34
+                                value = 0
                     )
            ),
            tags$div(class="col-sm-4",
-                    sliderInput("VacOutdoor",
-                                "Vaccine Outdoor dogs",
+                    sliderInput("VacAdultIndoor",
+                                "Vaccine coverage Adult Indoor dogs (%)",
                                 min = 0,
                                 max = 100,
                                 step = 1,
-                                value = 33
+                                value = 0
                     )
            ),
            tags$div(class="col-sm-4",
-                    sliderInput("VacStray",
-                                "Vaccine Stray dogss",
+                    sliderInput("VacOlderIndoor",
+                                "Vaccine coverage Older Indoor dogs (%)",
                                 min = 0,
                                 max = 100,
                                 step = 1,
-                                value = 33
+                                value = 0
+                    )
+           ),
+           tags$div(class="col-sm-4",
+                    sliderInput("VacPuppyOutdoor",
+                                "Vaccine coverage Puppy Outdoor dogs (%)",
+                                min = 0,
+                                max = 100,
+                                step = 1,
+                                value = 0
+                    )
+           ),
+           tags$div(class="col-sm-4",
+                    sliderInput("VacAdultOutdoor",
+                                "Vaccine coverage Adult Outdoor dogs (%)",
+                                min = 0,
+                                max = 100,
+                                step = 1,
+                                value = 0
+                    )
+           ),
+           tags$div(class="col-sm-4",
+                    sliderInput("VacOlderOutdoor",
+                                "Vaccine coverage Older Outdoor dogs (%)",
+                                min = 0,
+                                max = 100,
+                                step = 1,
+                                value = 0
+                    )
+           ),
+           tags$div(class="col-sm-4",
+                    sliderInput("VacPuppyStray",
+                                "Vaccine coverage Puppy Stray dogs (%)",
+                                min = 0,
+                                max = 100,
+                                step = 1,
+                                value = 0
+                    )
+           ),
+           tags$div(class="col-sm-4",
+                    sliderInput("VacAdultStray",
+                                "Vaccine coverage Adult Stray dogs (%)",
+                                min = 0,
+                                max = 100,
+                                step = 1,
+                                value = 0
+                    )
+           ),
+           tags$div(class="col-sm-4",
+                    sliderInput("VacOlderStray",
+                                "Vaccine coverage Older Stray dogs (%)",
+                                min = 0,
+                                max = 100,
+                                step = 1,
+                                value = 0
                     )
            ),
            

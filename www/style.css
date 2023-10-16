@@ -5,8 +5,12 @@
     margin-bottom: 20px 
 }
 .logo{
-    height: 400px;
     width : 800px;
+    height: 400px;
+}
+.modelimage{
+    width : 800px;
+    height: 450px;
 }
 a,p,ol,li{
     font-size: 18px;
@@ -49,7 +53,8 @@ hr{
     border: 0;
     height: 2px;
     background: #333;
-    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+    background: linear-gradient(45deg, #565656 0%, #C0C0C0 100%);
+ /*   background-image: linear-gradient(to right, #C0C0C0, #e5e4e2, #C0C0C0); */
 }
 a.italic{
     font-style: italic;
@@ -64,18 +69,18 @@ a.italic{
  border: 2px solid #73AD21;
 }
 .logo{
-    height: 300px;
-    width : 300px;
+    height: 100px;
+    width : 100px;
 }
 
 .logo2{
-    height: 250px;
-    width : 350px;
+    height: 85px;
+    width : 115px;
 }
 
 .logo3{
-    height: 250px;
-    width : 250px;
+    height: 85px;
+    width : 150px;
 }
 
 
@@ -100,3 +105,21 @@ td:nth-child(even),th:nth-child(even) {
     background-color: #e2e2e2;
     
 }
+div#PopIndoorPlot ,div#PopOutdoorPlot ,div#PopStrayPlot ,div#TotalPop {
+    height: 600px !important;
+}
+
+.inline label{ 
+    display: table-cell; 
+    text-align: left; 
+    vertical-align: middle; 
+    
+} 
+.inline .form-group{
+    display: table-row;
+    
+}
+
+input[type="number"] {
+    font-size: 20px;
+  }

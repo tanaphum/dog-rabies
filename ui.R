@@ -10,10 +10,13 @@
 library(shiny)
 library(plotly)
 library(DT)
+library(shinycssloaders)
+library(shinyjs)
+library(shinybusy)
 
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
-    
+    useShinyjs(),
     tags$head(
         tags$meta(charset="UTF-8"),
         tags$link(rel = "stylesheet", type = "text/css", href = "style.css")
@@ -91,7 +94,20 @@ shinyUI(fluidPage(
         tags$img(class="logo",
                  src="image/MPH.jpg" 
                     ,alt="mahidol"),
-        ),
+        tags$img(class="logo",
+                 src="image/Chulalongkorn-University-logo.png" 
+                 ,alt="mahidol"),
+        tags$img(class="logo2",
+                 src="image/nstda.png" 
+                 ,alt="mahidol"),
+        tags$img(class="logo",
+                 src="image/logo_DLD.jpg" 
+                 ,alt="mahidol"),
+        tags$img(class="logo3",
+                 src="image/MORU_FS_RGB.png" 
+                 ,alt="mahidol"),
+         ),
+    
         
         tags$h3("ผู้รับผิดชอบโครงการและคณะผู้วิจัย"),
         tags$ol(type = "1",
@@ -108,7 +124,7 @@ shinyUI(fluidPage(
                  tags$h2("Mathematical model"),
                  tags$h3("Age structure model"),
                  tags$div(class="center",
-                          tags$img( src="image/Model.png" 
+                          tags$img(class="modelimage", src="image/Model.png" 
                                    ,alt="model"),
                  ),
                 
@@ -136,39 +152,58 @@ shinyUI(fluidPage(
                  source("./www/VacInput.R", local = TRUE)$value,
         ),
         tabPanel("Model predictions",
+                 actionButton("run","Run"),
                  tabsetPanel(
                      tabPanel("Dog population",
+                              use_busy_spinner(spin = "fading-circle"),
                               tags$div(class = "col-sm-6",
                                        tags$h1("Indoor"),
-                                       plotlyOutput("PopIndoorPlot")
+                                       # withSpinner(plotlyOutput("PopIndoorPlot"), type = 5, color = "#0dc5c1", size = 2)
+                                       plotOutput("PopIndoorPlot")
                               ),
                               tags$div(class = "col-sm-6",
                                        tags$h1("Outdoor"),
-                                       plotlyOutput("PopOutdoorPlot")
+                                       # withSpinner(plotlyOutput("PopOutdoorPlot"), type = 5, color = "#0dc5c1", size = 2)
+                                       plotOutput("PopOutdoorPlot")
                               ),
                               tags$div(class = "col-sm-6",
                                        tags$h1("Stray"),
-                                       plotlyOutput("PopStrayPlot")
+                                       # withSpinner(plotlyOutput("PopStrayPlot"), type = 5, color = "#0dc5c1", size = 2)
+                                       plotOutput("PopStrayPlot")
+                              ),
+                              tags$div(class = "col-sm-6",
+                                       tags$h1("TotalPop"),
+                                       # withSpinner(plotlyOutput("TotalPop"), type = 5, color = "#0dc5c1", size = 2)
+                                       plotOutput("TotalPop")
+
                               ),
                               # tags$div(class = "col-sm-12",
                               # DT::dataTableOutput("table"),
                               # )
                               ),
                      tabPanel("Sterilization",
-                              plotlyOutput("SterilizationPlot")
+                              tags$h1("Indoor dog Sterilization"),
+                              plotlyOutput("SterilizationPlot"),
+                              tags$h1("Outdoor dog Sterilization"),
+                              plotlyOutput("SterilizationPlot2"),
+                              tags$h1("Stray dog Sterilization"),
+                              plotlyOutput("SterilizationPlot3"),
                               ),
+                     tabPanel("Vaccination",
+                              plotlyOutput("")
+                     ),
                      tabPanel("Rabies")
                  ),
                  ),
         tabPanel("Cost",
                  tabsetPanel(
-                     tabPanel("interventions"),
-                     tabPanel("cost of dogs"),
-                     tabPanel("cost of biting"),
-                     tabPanel("burdens")
+                     tabPanel("Interventions"),
+                     tabPanel("Cost of dogs"),
+                     tabPanel("Cost of biting"),
+                     tabPanel("Burdens")
                  ),),
         tabPanel("Economic analysis",
-                 tags$h1("scenario comparison")
+                 tags$h1("Scenario comparison")
                  )
         
     ),
